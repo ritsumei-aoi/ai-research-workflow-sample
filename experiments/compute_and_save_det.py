@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """
-Compute exhaustive determinant distributions for n=1..3 and save JSON results.
+Compute exhaustive determinant distributions for n=1..4 and save JSON results.
 """
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+
 from pathlib import Path
 from time import perf_counter
 from pathlib import Path
@@ -11,7 +18,7 @@ from ternary_det.schema_io import save_det_result
 OUTPUT_DIR = Path("data/det_results")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-for n in range(1, 4):
+for n in range(1, 5):
     print(f"Computing n={n}...")
     t0 = perf_counter()
     res = compute_distribution(n)

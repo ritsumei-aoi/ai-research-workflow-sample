@@ -2,8 +2,12 @@
 """
 Run sampling for n=4 ternary matrices and save a summary JSON.
 """
-import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+import json
 from time import perf_counter
 from ternary_det.distribution import compute_distribution
 from ternary_det.schema_io import save_det_result

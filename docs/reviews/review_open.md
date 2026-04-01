@@ -1,32 +1,40 @@
 Created: today
 Category:
 
-## I1. サンプルコードの提示について
+## I1. src以下のモジュールimportのためのコード設定について
 
-pytest が通ったのは問題ないが，実際にJSONファイルを作成したり，
-結果を検証するためのコードを experiments 以下に作成してください．
-作成したコードは experiments/README.md に一覧として記載してください．
+このプロジェクトでは，コードはレポジトリルートから実行することを想定します．そのため，
+experiments などにあるコードは以下を指定することにします：
+```python
+import sys
+from pathlib import Path
 
----
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+```
+これを指定するという注意事項を handover 以下に新規にファイルを作成して記載してください．現在の experiments にあるものはこちらで対応ずみです．つまり，記載する必要な情報は以下ですが，他にあればそちらの判断で加えてください：
 
-## I2. 行列式についての一般論の提示
-
-行列式についての一般論を　docs/theory/ のいずれかの場所に作成してください．
-これにより，例えば行列式が整数値のみとることや，最大値と最小値の絶対値は等しいこと
-などが示されるので，そのあたりを docs/theory/proofs あたりにファイルを作成することを検証してください．
-ファイルの構成はお任せします．
-
----
-
-## I3. Hadamard matrixについての一般論の提示
-
-Hadamard matrix は今回の検証における特別な場合に対応することから，
-行列式に関する上限/下限を定めるものである．
-そこで，Hadamard matrix に関する一般論を docs/theory 以下に作成してください．これは
-docs/theory/README.md に記載があるように，
-`hadamard_bound.md`というファイルに作成してください．
-I2 および I3 により作成したものは docs/theory/README.md に反映させてください．
+- モジュールは`src` 以下に作っている
+- サンプルコードは `experiments` 以下に作ることを基本とする
+- 各コードはレポジトリルートから端末で実行することを想定する．これらより，各コードはモジュールimport のためのpathの指定を行う必要がある（上で提示したコード）
 
 ---
 
+## I2. n=1,2,3,4 の検証に伴う統計情報の作成
 
+n=4までを全て求めました． data 以下にデータが格納されているので，それを踏まえて
+`docs/theory/analysis/distribution_analysis.md` を作成してください．
+これは `docs/theory/README.md` で作成予定とされているものです．
+現時点の data で作成した情報を元に作成してください．
+ちなみに，現環境では以下の実行時間になったので，それも記載しておいてください．
+
+```
+% python ./experiments/compute_and_save_det.py
+Computing n=1...
+Saved data/det_results/det_1.json (time=0.0000s)
+Computing n=2...
+Saved data/det_results/det_2.json (time=0.0001s)
+Computing n=3...
+Saved data/det_results/det_3.json (time=0.0303s)
+Computing n=4...
+Saved data/det_results/det_4.json (time=83.5259s)
+```

@@ -33,9 +33,9 @@
     ]
   },
   "metadata": {
-    "computed_at": null,
-    "computation_time_sec": null,
+    "computed_at": "2026-04-01T09:29:04.454141+00:00",
+    "computation_time_sec": 2.595805563032627e-05,
     "random_seed": null,
-    "sample_size": null
+    "sample_size": 3
   }
 }
