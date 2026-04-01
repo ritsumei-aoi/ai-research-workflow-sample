@@ -24,7 +24,7 @@ docs/theory/
 
 | ファイル | 内容 |
 |---|---|
-| `distribution_analysis.md` | (作成予定)行列式分布の統計的性質の解析 |
+| `distribution_analysis.md` | 行列式分布の統計的性質の解析 |
 
 ### derivations/ — 導出ノート
 
