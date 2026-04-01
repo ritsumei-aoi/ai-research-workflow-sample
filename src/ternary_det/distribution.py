@@ -22,12 +22,25 @@ def compute_distribution(n: int, sample_size: Optional[int] = None,
         Dictionary with distribution data.
     """
     counter: Counter[int] = Counter()
+    extremal_max: list[dict] = []
+    extremal_min: list[dict] = []
 
     if sample_size is None:
         # Exhaustive enumeration
         for matrix in generate_all_ternary_matrices(n):
             d = det_exact(matrix)
             counter[d] += 1
+            # track extremal matrices
+            if not extremal_max or d > extremal_max[0]["det"]:
+                extremal_max = [{"matrix": matrix, "det": d}]
+            elif d == extremal_max[0]["det"]:
+                extremal_max.append({"matrix": matrix, "det": d})
+
+            if not extremal_min or d < extremal_min[0]["det"]:
+                extremal_min = [{"matrix": matrix, "det": d}]
+            elif d == extremal_min[0]["det"]:
+                extremal_min.append({"matrix": matrix, "det": d})
+
         total = sum(counter.values())
         computation_type = "exhaustive"
     else:
@@ -35,10 +48,21 @@ def compute_distribution(n: int, sample_size: Optional[int] = None,
         if random_seed is not None:
             random.seed(random_seed)
         entries = [-1, 0, 1]
+        # For sampling, we only record extremal examples seen in the sample
         for _ in range(sample_size):
             matrix = [[random.choice(entries) for _ in range(n)] for _ in range(n)]
             d = det_exact(matrix)
             counter[d] += 1
+            if not extremal_max or d > extremal_max[0]["det"]:
+                extremal_max = [{"matrix": matrix, "det": d}]
+            elif d == extremal_max[0]["det"]:
+                extremal_max.append({"matrix": matrix, "det": d})
+
+            if not extremal_min or d < extremal_min[0]["det"]:
+                extremal_min = [{"matrix": matrix, "det": d}]
+            elif d == extremal_min[0]["det"]:
+                extremal_min.append({"matrix": matrix, "det": d})
+
         total = sample_size
         computation_type = "sampling"
 
@@ -53,4 +77,5 @@ def compute_distribution(n: int, sample_size: Optional[int] = None,
         "distribution": distribution,
         "det_max": det_max,
         "det_min": det_min,
+        "extremal_matrices": {"max": extremal_max, "min": extremal_min},
     }
