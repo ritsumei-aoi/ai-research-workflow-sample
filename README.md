@@ -1,68 +1,57 @@
-# AI Research Workflow Template
+# 1.58-bit 行列の行列式分布
 
-AI を活用した研究ワークフローのテンプレートリポジトリ。
+n 次正方行列で、値が {-1, 0, 1} のいずれかである行列（1.58-bit 行列）について、行列式の分布と極値を計算的に調べるプロジェクト。
 
 ## 概要
 
-このテンプレートは、AI アシスタント（GitHub Copilot, Gemini CLI 等）を活用した学術研究プロジェクトのワークフロー基盤を提供します。
+### 研究テーマ
 
-### 主な機能
+- **行列式分布**: 全 3^(n²) 個の n×n ternary 行列について、行列式の値の分布を計算
+- **極値問題**: det_max(n) = max{|det(A)| : A ∈ {-1,0,1}^(n×n)} を求める
+- **漸近的性質**: det_max(n) の n に関する増大度の考察
 
-- **セッション引き継ぎシステム**: `handover/` による AI セッション間の文脈保持
-- **3 つのワークフロー方式**: Method A（対話型）、Method B（エージェント型）、Method C（GitHub Agentic）
-- **レビュー駆動ワークフロー**: `docs/reviews/` によるレビュー指摘の構造化管理
-- **プロンプトキット**: `handover/next_session/` によるセッション開始・終了の標準化
+### 背景
 
-## クイックスタート
-
-1. このテンプレートから新しいリポジトリを作成
-2. `CUSTOMIZE.md` の手順に従ってプロジェクト固有の設定を行う
-3. `handover/handover_memo_latest.md` に初期状態を記入
-4. AI セッションを開始
+- log₂(3) ≈ 1.58 なので、各成分は約 1.58 ビットの情報量を持つ
+- ±1 行列の最大行列式は Hadamard 行列と関連（Hadamard 予想）
+- {-1, 0, 1} 行列は ±1 行列の一般化であり、0 を許すことで異なる構造が現れる
 
 ## ディレクトリ構成
 
 ```
-├── .github/copilot-instructions.md   # Copilot 用プロジェクト設定
-├── GEMINI.md                         # Gemini CLI 用プロジェクト設定
-├── CUSTOMIZE.md                      # カスタマイズ手順書
-├── handover/                         # セッション引き継ぎ・ワークフロー定義
-│   ├── README.md                     # 引き継ぎ情報の索引
-│   ├── workflow_common.md            # 全方式共通ルール
-│   ├── workflow_method_a.md          # Method A（対話型）
-│   ├── workflow_method_b.md          # Method B（エージェント型）
-│   ├── workflow_method_c.md          # Method C（GitHub Agentic）[Draft]
-│   ├── workflow_review.md            # レビュー駆動ワークフロー
-│   ├── workflow_methods_comparison.md # 方式比較ガイド
-│   ├── handover_memo_latest.md       # 最新セッション引き継ぎ
-│   ├── handover_memo_archived.md     # 過去セッション履歴
-│   ├── handover_memo_format.md       # メモ形式定義
-│   ├── session_protocol_method_a.md  # Method A 詳細手順
-│   └── next_session/                 # 次回セッション用プロンプトキット
+├── data/
+│   ├── det_results/       # Schema 1: n ごとの行列式計算結果
+│   └── analysis/          # Schema 2: n 横断の分析結果
+├── src/ternary_det/       # コアライブラリ
+├── tests/                 # テストコード
+├── experiments/           # 実験スクリプト
 ├── docs/
-│   ├── reviews/                      # レビュー管理
-│   ├── theory/                       # 理論資料
-│   └── drafts/                       # 論文草稿（LaTeX）
-├── data/                             # データファイル（JSON 等）
-├── src/                              # ソースコード
-├── tests/                            # テストコード
-├── experiments/                      # 実験スクリプト
-├── examples/                         # サンプルコード
-├── scripts/                          # ユーティリティスクリプト
-├── log/                              # セッションログ
-└── _legacy/                          # 非推奨ファイルの保管場所
+│   ├── theory/            # 理論資料（証明・解析）
+│   ├── drafts/            # 論文草稿
+│   └── reviews/           # レビュー管理
+├── handover/              # セッション引き継ぎ・ワークフロー
+├── scripts/               # ユーティリティ
+└── log/                   # セッションログ
 ```
 
-## カスタマイズ
+## クイックスタート
 
-`CUSTOMIZE.md` を参照してください。`<!-- CUSTOMIZE -->` マーカーが付いたファイルをプロジェクトに合わせて編集します。
+```bash
+pip install -e .
+pip install -r requirements.txt
+pytest tests/ -v
+```
 
-## ワークフロー詳細
+## JSON スキーマ
 
-- [handover/README.md](handover/README.md) — 全文書の索引と推奨読了順
-- [handover/workflow_common.md](handover/workflow_common.md) — 全方式共通ルール
-- [handover/workflow_methods_comparison.md](handover/workflow_methods_comparison.md) — 方式の比較と選択ガイド
+- [Schema 1: 行列式計算結果](docs/json_schema_det_results.md)
+- [Schema 2: 分析結果](docs/json_schema_analysis.md)
+
+## ワークフロー
+
+- [handover/README.md](handover/README.md) — 引き継ぎ情報索引
+- [handover/workflow_method_b.md](handover/workflow_method_b.md) — AI エージェントワークフロー
 
 ## ライセンス
 
-<!-- CUSTOMIZE: Add your license information -->
+MIT License

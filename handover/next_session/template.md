@@ -23,7 +23,6 @@
 - `handover/handover_memo_format.md`
 - `handover/handover_memo_latest.md`
 - `log/README.md`
-- <!-- CUSTOMIZE: Add project-specific reference files here -->
 
 ## Build Procedure
 

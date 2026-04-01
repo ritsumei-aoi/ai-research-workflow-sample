@@ -9,8 +9,8 @@
 このREADMEのリンク解決は `base_path` を基準にします。
 
 <!-- CUSTOMIZE: Update repository metadata -->
-- owner: `your-github-username`
-- repo: `your-repo-name`
+- owner: `ritsumei-aoi`
+- repo: `ai-research-workflow-sample`
 - base_path: `handover/`
 - default_ref: `main`
 
@@ -48,31 +48,24 @@
 
 ## 2. 実装仕様・設計資料
 
-<!-- CUSTOMIZE: Add project-specific implementation documents here. Example:
-- [コード構造](code_structure.md)
-  - 現行モジュール構成、パイプライン、処理フロー。
-- [記法と用語の定義](notation.md)
-  - 本リポジトリで使う記法・用語の統一ルール。
--->
+- JSON スキーマ仕様
+  - [Schema 1: 行列式計算結果 (det_results)](../docs/json_schema_det_results.md)
+  - [Schema 2: 分析結果 (analysis)](../docs/json_schema_analysis.md)
 
 ## 3. 導出・理論資料
 
 > 理論関連ファイルは `docs/theory/` に集約。[docs/theory/README.md](../docs/theory/README.md) も参照。
 > レビュー記録は `docs/reviews/` に集約。[docs/reviews/README.md](../docs/reviews/README.md) も参照。
 
-<!-- CUSTOMIZE: Add project-specific theory documents here. Example:
-- [証明文書](../docs/theory/proofs/)
-  - 形式的な証明の記録。
-- [解析レポート](../docs/theory/analysis/)
-  - 計算的解析の結果。
--->
+- [Hadamard 型上界の導出](../docs/theory/derivations/hadamard_bound.md)（予定）
+  - ternary 行列に対する行列式の上界。
 
 ## 4. 参照・調査資料
 
-<!-- CUSTOMIZE: Add project-specific references here. Example:
-- [参考文献・関連資料](references.md)
-  - 論文・関連リンク。
--->
+- 参考文献
+  - Hadamard conjecture (Wikipedia)
+  - OEIS A003432: Maximal determinant of an n×n {0,1} matrix
+  - OEIS A003433: Maximal determinant of an n×n {-1,1} matrix
 
 ## 5. 次回セッション用
 
@@ -94,7 +87,6 @@
 `_legacy/handover/` に移動済み（参照のみ）。
 
 <!-- CUSTOMIZE: Add legacy file references as your project evolves -->
-
 ## 運用メモ
 
 - `handover/` に Markdown ファイルを新規追加・改名・用途変更した場合は、この目次を同時に更新してください。

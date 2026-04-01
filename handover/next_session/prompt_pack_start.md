@@ -22,23 +22,25 @@
 
 ## Prompt 1: Paper Confirmation
 
-<!-- CUSTOMIZE: Replace with your project's reference paper/resource -->
-
 ```markdown
-## 1. 論文と作業の概要
-
-### 対象論文
-<!-- CUSTOMIZE: Describe your reference paper or resource -->
-添付されている **`<reference-file>`** が、このセッションの作業の中心です。
+## 1. プロジェクトと作業の概要
 
 ### プロジェクトの目的
-<!-- CUSTOMIZE: Describe your project's purpose -->
+
+n 次正方行列で、成分が {-1, 0, 1} のいずれかである行列（1.58-bit 行列）について、
+行列式の分布を計算し、極値を求めるプロジェクトです。
+
+### 主要な概念
+
+- **1.58-bit 行列**: 各成分が {-1, 0, 1} の n×n 行列（log₂(3) ≈ 1.58 ビット）
+- **行列式分布**: 全 3^(n²) 個の行列にわたる行列式の値の出現頻度
+- **極値問題**: det_max(n) = max{|det(A)| : A ∈ {-1,0,1}^(n×n)}
 
 ### あなたのここでの作業
 
-上記の資料を確認し、プロジェクトの主要な定義と構造を把握してください。
+プロジェクトの概要を確認し、主要な概念を把握してください。
 
-確認が完了したら「資料を確認しました。次のステップに進んでください」と回答してください。
+確認が完了したら「概要を確認しました。次のステップに進んでください」と回答してください。
 ```
 
 ## Prompt 2: Goal Setting
@@ -50,9 +52,8 @@
 
 現在作成しているファイルは，以下のGitHubレポジトリのものになります：
 
-<!-- CUSTOMIZE: Update with your repository information -->
-- owner: `your-github-username`
-- repo: `your-repo-name`
+- owner: `ritsumei-aoi`
+- repo: `ai-research-workflow-sample`
 
 あなたはMCPサーバからここにあるファイルを取得できます．ただし，書き込みやGitの操作などはできません．
 最初に用いるのは以下になります：

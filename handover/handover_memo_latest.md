@@ -1,8 +1,55 @@
 # Handover Memo (Latest Session)
 
-> このファイルは最新セッションの引き継ぎ情報を保持します。
-> 前回のセッション情報は `handover_memo_archived.md` に移動されます。
-> フォーマット定義: [handover_memo_format.md](handover_memo_format.md)
+**このファイルは最新セッションの情報のみを含みます。過去のセッションは `handover_memo_archived.md` を参照してください。**
 
-<!-- セッション開始時に scripts/extract_latest_session.sh を実行して、
-     既存内容を handover_memo_archived.md に移動してから更新してください。 -->
+***
+
+## Current Status (最新状況)
+
+**最終更新**: 2026-04-01
+**実施方式**: —
+**セッションブランチ**: —
+**現在の進行状況**: プロジェクト初期設定完了。実装未着手。
+
+***
+
+## Implementation Roadmap (実装ロードマップ)
+
+- [ ] **Step 1**: コアライブラリの実装（matrix_gen, det_compute, distribution）
+- [ ] **Step 2**: JSON スキーマの定義と I/O 実装（schema_io）
+- [ ] **Step 3**: n=1,2,3 の網羅的計算と結果保存
+- [ ] **Step 4**: 極値探索アルゴリズムの実装（extremal）
+- [ ] **Step 5**: n=4,5 の計算（サンプリング含む）
+- [ ] **Step 6**: det_max(n) の性質の理論的考察
+- [ ] **Step 7**: 理論文書・論文草稿の作成
+
+***
+
+## Implementation Guidelines (実装ガイドライン)
+
+- 行列式は整数として厳密計算（浮動小数点は使用しない）
+- n ≤ 4 では全数探索、n ≥ 5 ではランダムサンプリングを併用
+- JSON スキーマにはバージョン番号 `schema_version` を含める
+- 結果の再現性のため、乱数シードを記録する
+
+***
+
+## Future Work (将来の作業)
+
+- {-1, 0, 1} 行列から {-1, 1} 行列（Hadamard 型）への特殊化
+- 対称行列・反対称行列への制限
+- 特性多項式の分布
+- n が大きい場合の漸近公式との比較
+
+***
+
+## 🔄 次回セッションへの引き継ぎ
+
+### 短期目標
+
+1. Step 1: コアライブラリの実装
+2. Step 2: JSON スキーマの定義
+
+### 注意事項
+
+- プロジェクト初回セッション。テンプレートからの初期設定済み。

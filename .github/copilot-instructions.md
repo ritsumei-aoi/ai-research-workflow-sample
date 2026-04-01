@@ -11,8 +11,10 @@ Short, actionable instructions for Copilot/GitHub AI sessions in this repository
   - pytest tests/ -v
 - Run a single test:
   - pytest tests/<file>.py::test_function_name -q
-  - or use substring filtering: pytest -k "substring" -q
-<!-- CUSTOMIZE: Add project-specific commands here -->
+- Generate determinant data for n×n:
+  - python experiments/generate_det_data.py --n 3
+- Validate JSON schema:
+  - python experiments/validate_schema.py data/det_results/det_3.json
 
 # Linter / formatting
 
@@ -20,19 +22,29 @@ Short, actionable instructions for Copilot/GitHub AI sessions in this repository
 
 # High-level architecture (big picture)
 
-<!-- CUSTOMIZE: Describe your project's architecture here. Example:
-- Data-driven pipeline: mathematical objects are stored as JSON under data/ and processed by scripts.
-- Core library (src/your_package): main computation modules.
-- Experiment scripts (experiments/): scripts for running experiments and validating results.
--->
+- Data-driven pipeline: determinant computation results are stored as JSON under data/ and analyzed by scripts.
+  - Schema 1 (data/det_results/): determinant computation results for each n (distribution, extremal matrices)
+  - Schema 2 (data/analysis/): aggregate analysis across multiple n values (trends, conjectures)
+- Core library (src/ternary_det):
+  - matrix_gen.py — ternary matrix generation (exhaustive for small n, sampling for large n)
+  - det_compute.py — determinant computation with caching and optimization
+  - distribution.py — determinant distribution analysis (histogram, statistics)
+  - extremal.py — maximal/minimal determinant search algorithms
+  - schema_io.py — JSON schema I/O utilities
+- Experiment scripts (experiments/):
+  - generate_det_data.py — generate determinant data for given n
+  - validate_schema.py — validate JSON data against schema
+  - analyze_trends.py — analyze det_max(n) trends across n values
 
 # Key repository-specific conventions
 
-<!-- CUSTOMIZE: Describe your project's conventions here. Example:
-- JSON schema and file naming conventions.
-- Symbol and notation conventions.
-- Data format specifications.
--->
+- JSON schema naming:
+  - det_results: det_{n}.json (e.g., det_3.json, det_4.json)
+  - analysis: analysis_{n_range}.json (e.g., analysis_1_to_6.json)
+- Matrix representation: row-major list of lists, e.g., [[1,0,-1],[0,1,1],[-1,0,1]]
+- Determinant values are always stored as integers (exact computation, no floating point)
+- For large n (n ≥ 5), use random sampling instead of exhaustive enumeration
+  - Sampling results include sample_size and confidence metadata
 
 # AI agent rules & integration notes
 
@@ -41,10 +53,6 @@ Short, actionable instructions for Copilot/GitHub AI sessions in this repository
   2) handover/workflow_common.md
   3) handover/workflow_method_b.md
   4) handover/handover_memo_latest.md
-  <!-- CUSTOMIZE: Add project-specific files to the reading order, e.g.:
-  5) handover/code_structure.md
-  6) handover/notation.md
-  -->
 - Method selection:
   - AI agents with direct execution (Copilot Chat / Gemini CLI): use Method B (handover/workflow_method_b.md)
   - Interactive dialog without direct execution: use Method A (handover/workflow_method_a.md)
@@ -52,12 +60,12 @@ Short, actionable instructions for Copilot/GitHub AI sessions in this repository
 
 # Where to look next
 
+- docs/json_schema_det_results.md (Schema 1: per-n determinant data)
+- docs/json_schema_analysis.md (Schema 2: cross-n analysis)
 - handover/* for session-specific notes and workflows
-- docs/ for project documentation
-<!-- CUSTOMIZE: Add project-specific documentation references here -->
+- experiments/ for scripts that generate and validate data
 
 # If there are existing AI assistant configs
 
 - This repository uses handover/workflow_method_b.md as the unified AI agent workflow (Method B).
   No CLAUDE.md, AGENTS.md, or .cursorrules files are used.
-
