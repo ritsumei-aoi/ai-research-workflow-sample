@@ -1,0 +1,8 @@
+2026-04-01T07:00:00Z - Session started
+- Marked Step 1 complete in handover/handover_memo_latest.md
+- Implemented extremal matrix recording in src/ternary_det/distribution.py
+- Added scripts/compute_and_save_det.py and computed data/det_results/det_1.json..det_3.json
+- Ran tests: 13 passed
+- Created branch ai/2026-04-01-core-implementation, merged to main via squash and pushed
+- Created next session prompt handover/next_session/ai-2026-04-01-next.md
+2026-04-01T07:04:00Z - Session ended
