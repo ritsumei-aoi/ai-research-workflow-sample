@@ -31,6 +31,7 @@ docs/theory/
 | ファイル | 内容 |
 |---|---|
 | `hadamard_bound.md` | Hadamard 上界の ternary 行列版の導出 |
+| `basic_determinant_theory.md` | 行列式の定義と基本的な性質 |
 
 ## 関連ファイル
 
