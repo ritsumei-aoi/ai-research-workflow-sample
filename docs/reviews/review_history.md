@@ -34,12 +34,24 @@ I2: n=1〜4 の分布・統計情報を docs/theory/analysis/distribution_analys
 | I1 | モジュールimportの注意事項 | docs | handover/module_import_convention.md を新規作成 |
 | I2 | n=1〜4分布・統計情報 | theory | distribution_analysis.md を新規作成し、README も更新 |
 
+---
+
+## review_260401_03 — ✅ 対応済み
+
+カテゴリ: theory, docs
+
+I1: (-1,0,1)-行列の既知の性質・最大行列式・個数等をまとめた known_results_summary.md を新規作成
+
+| # | タイトル | カテゴリ | 対応内容 |
+|---|---------|---------| ------- |
+| I1 | 既知の結果の集約 | theory, docs | known_results_summary.md を新規作成し、主要性質・参考リンクを記載 |
+
 ## 統計
 
 | カテゴリ | 項目総数 | 対応済み | 対応中 |
 |---------| ---------|---------|-------|
 | code   | 1 |  1  |  0  | 
-| theory  | 1 | 1  |  0 |
-| docs    | 1  | 1  |  0  |
-| **合計** | **3**  | **3**  | **0** |
+| theory  | 2 | 2  |  0 |
+| docs    | 2  | 2  |  0  |
+| **合計** | **5**  | **5**  | **0** |
 
