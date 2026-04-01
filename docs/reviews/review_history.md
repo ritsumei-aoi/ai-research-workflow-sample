@@ -20,6 +20,20 @@
 
 
 
+---
+
+## review_260401_02 — ✅ 対応済み
+
+カテゴリ: docs, theory
+
+I1: handover/module_import_convention.md を新規作成し、src モジュールimportの注意事項を明記
+I2: n=1〜4 の分布・統計情報を docs/theory/analysis/distribution_analysis.md にまとめ、README も更新
+
+| # | タイトル | カテゴリ | 対応内容 |
+|---|---------|---------| ------- |
+| I1 | モジュールimportの注意事項 | docs | handover/module_import_convention.md を新規作成 |
+| I2 | n=1〜4分布・統計情報 | theory | distribution_analysis.md を新規作成し、README も更新 |
+
 ## 統計
 
 | カテゴリ | 項目総数 | 対応済み | 対応中 |
