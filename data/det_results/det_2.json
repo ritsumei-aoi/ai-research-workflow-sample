@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "matrix_size": 2,
+  "computation_type": "exhaustive",
+  "total_matrices": 81,
+  "distribution": {
+    "-2": 4,
+    "-1": 20,
+    "0": 33,
+    "1": 20,
+    "2": 4
+  },
+  "det_max": 2,
+  "det_min": -2,
+  "extremal_matrices": {
+    "max": [
+      {
+        "matrix": [
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "det": 2
+      },
+      {
+        "matrix": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "det": 2
+      },
+      {
+        "matrix": [
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "det": 2
+      },
+      {
+        "matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "det": 2
+      }
+    ],
+    "min": [
+      {
+        "matrix": [
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "det": -2
+      },
+      {
+        "matrix": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "det": -2
+      },
+      {
+        "matrix": [
+          [
+            1,
+            -1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "det": -2
+      },
+      {
+        "matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "det": -2
+      }
+    ]
+  },
+  "metadata": {
+    "computed_at": null,
+    "computation_time_sec": null,
+    "random_seed": null,
+    "sample_size": null
+  }
+}

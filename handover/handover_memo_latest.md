@@ -15,7 +15,7 @@
 
 ## Implementation Roadmap (実装ロードマップ)
 
-- [ ] **Step 1**: コアライブラリの実装（matrix_gen, det_compute, distribution）
+- [x] **Step 1**: コアライブラリの実装（matrix_gen, det_compute, distribution）
 - [ ] **Step 2**: JSON スキーマの定義と I/O 実装（schema_io）
 - [ ] **Step 3**: n=1,2,3 の網羅的計算と結果保存
 - [ ] **Step 4**: 極値探索アルゴリズムの実装（extremal）

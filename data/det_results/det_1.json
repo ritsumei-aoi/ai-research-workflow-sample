@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "matrix_size": 1,
+  "computation_type": "exhaustive",
+  "total_matrices": 3,
+  "distribution": {
+    "-1": 1,
+    "0": 1,
+    "1": 1
+  },
+  "det_max": 1,
+  "det_min": -1,
+  "extremal_matrices": {
+    "max": [
+      {
+        "matrix": [
+          [
+            1
+          ]
+        ],
+        "det": 1
+      }
+    ],
+    "min": [
+      {
+        "matrix": [
+          [
+            -1
+          ]
+        ],
+        "det": -1
+      }
+    ]
+  },
+  "metadata": {
+    "computed_at": null,
+    "computation_time_sec": null,
+    "random_seed": null,
+    "sample_size": null
+  }
+}
